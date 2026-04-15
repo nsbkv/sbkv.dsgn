@@ -2,13 +2,14 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
   server: {
-    cors: true,
+    cors: true, // Erlaubt CORS während der lokalen Entwicklung
   },
   build: {
-    // Einstellungen für die Produktion
+    // Legt fest, wo die Dateien nach dem Build landen
+    outDir: 'dist',
     rollupOptions: {
       output: {
-        // Entfernt die Zufallszahlen aus dem Dateinamen
+        // Erzwingt saubere Dateinamen ohne Zufalls-Strings
         entryFileNames: `assets/[name].js`,
         chunkFileNames: `assets/[name].js`,
         assetFileNames: `assets/[name].[ext]`
