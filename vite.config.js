@@ -2,10 +2,17 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
   server: {
-    cors: true, // Это разрешает всем сайтам обращаться к твоему локальному серверу
-    hmr: {
-      protocol: 'ws',
-      host: 'localhost',
-    },
+    cors: true,
   },
+  build: {
+    // Einstellungen für die Produktion
+    rollupOptions: {
+      output: {
+        // Entfernt die Zufallszahlen aus dem Dateinamen
+        entryFileNames: `assets/[name].js`,
+        chunkFileNames: `assets/[name].js`,
+        assetFileNames: `assets/[name].[ext]`
+      }
+    }
+  }
 })
