@@ -7,9 +7,12 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     rollupOptions: {
+      // ❗ ВАЖНО: Указываем Vite, какой файл основной
+      input: {
+        main: './src/main.js' 
+      },
       output: {
-        // Теперь мы жестко задаем имя main.js
-        entryFileNames: 'assets/main.js', 
+        entryFileNames: 'assets/main.js',
         chunkFileNames: 'assets/[name].js',
         assetFileNames: 'assets/[name].[ext]'
       }
